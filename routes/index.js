@@ -1,9 +1,5 @@
-var express = require('express');
-var router = express.Router();
+var homeController = require('../controllers/home');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Osedea' });
-});
-
-module.exports = router;
+exports.setup = function(app) {
+  app.get('/', homeController.index);
+};
