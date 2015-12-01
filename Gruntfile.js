@@ -25,6 +25,18 @@ module.exports = function(grunt) {
         cwd: 'assets/css',
         src: '**',
         dest: 'public/stylesheets'
+      },
+      img: {
+        expand: true,
+        cwd: 'assets/img',
+        src: '**',
+        dest: 'public/images'
+      },
+      vendors: {
+        expand: true,
+        cwd: 'assets/vendors',
+        src: '**',
+        dest: 'public/vendors'
       }
     },
 
@@ -85,7 +97,7 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('copy-assets', ['copy:css']);
+  grunt.registerTask('copy-assets', ['copy:css','copy:img', 'copy:vendors']);
 
   grunt.registerTask('build-common', ['clean:build', 'sass', 'copy-assets', 'browserify']);
   grunt.registerTask('build-dev', ['build-common']);

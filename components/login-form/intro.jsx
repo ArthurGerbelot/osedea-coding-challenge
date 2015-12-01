@@ -1,13 +1,30 @@
 var React  = require('react');
 
 var Intro = React.createClass({
-  render: function() {
 
+  getInitialState: function() {
+    return {
+      is_hidden: false
+    }
+  },
+
+  componentDidMount: function() {
+    // When component did mount, start timeout to hide the intro
+    var self = this;
+    setTimeout(function() {
+      self.setState({
+        is_hidden: true
+      })
+    }, 3000);
+  },
+
+  render: function() {
+    var intro_classes = ["login-form__intro"];
+    if (this.state.is_hidden) {
+      intro_classes.push("login-form__intro--is-hidden");
+    }
     return (
-      <div>
-        <h1>/Osedea</h1>
-        <p>Welcome to our coding challenge!</p>
-        <hr/>
+      <div className={intro_classes.join(' ')}>
         <h3>Guidelines</h3>
         <p>The following challenge requires you to successfully submit a login form via an API call. Your code should be written on a new Git branch named "feature/solution". Your form should also include form validation with proper error messages. You do not need to implement any server-side logic apart from a route to catch the response and log the submitted data. </p>
         <p>Osedea has developed a library to help with form validation, we encourage you to use it for your implementation:</p>

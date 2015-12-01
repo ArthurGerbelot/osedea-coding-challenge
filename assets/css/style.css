@@ -5,14 +5,51 @@ body {
 a {
   color: #00B7FF; }
 
-#login-form {
+#login-form .login-form__intro {
+  opacity: 1;
+  max-height: 999px;
+  overflow: hidden;
+  transition: all 1s; }
+  #login-form .login-form__intro.login-form__intro--is-hidden {
+    max-height: 0;
+    opacity: 0; }
+#login-form .login-form__form-container {
+  opacity: 1;
+  max-height: 999px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  transition: all 1s; }
+  #login-form .login-form__form-container.login-form__form-container--is-hidden {
+    max-height: 0;
+    opacity: 0; }
+#login-form .login-form__error-message {
+  position: relative;
+  z-index: 1;
+  top: 4em;
+  height: 2em;
+  text-align: center;
+  color: red;
+  transition: top 1s; }
+  #login-form .login-form__error-message i {
+    margin-right: .5em; }
+  #login-form .login-form__error-message.login-form__error-message--is-visible {
+    top: 1em; }
+#login-form .login-form__form {
+  position: relative;
+  z-index: 2;
   max-width: 500px;
-  margin: auto;
+  margin: 20px auto 0;
   padding: 10px;
   background-color: #fAFAFA;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.15);
   border-radius: 3px; }
-  #login-form .form-group:last-child {
-    margin-bottom: 0; }
+  #login-form .login-form__form .form-group input {
+    transition: border-color 1s, box-shadow 1s; }
+  #login-form .login-form__form .form-group.form-group--is-error input {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 102, 102, 0.25); }
+  #login-form .login-form__form .form-group:last-child {
+    margin-bottom: 0;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

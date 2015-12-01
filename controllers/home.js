@@ -7,7 +7,6 @@ var MainApp = require('../components/app.jsx');
 
 module.exports = {
   index: function(req, res, next) {
-console.log("Home?");
     var react_data = {};
     var App = React.createElement(MainApp, react_data);
     res.react_app = React.renderToString(App);
